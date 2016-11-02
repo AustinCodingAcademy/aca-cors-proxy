@@ -1,7 +1,10 @@
 var express = require('express');  
 var request = require('request');
+var cors = require('cors');
 
-var app = express();  
+var app = express();
+app.use(cors);
+
 app.use('/', function(req, res) {  
   var url = apiServerHost + req.url;
   req.pipe(request(url)).pipe(res);
